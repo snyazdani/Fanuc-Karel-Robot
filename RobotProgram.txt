@@ -1,0 +1,587 @@
+PROGRAM tttsny
+
+VAR
+
+  perch        : JOINTPOS
+  abovepta     : JOINTPOS
+  onpta        : JOINTPOS
+  offrack      : JOINTPOS
+  outside1     : JOINTPOS
+  inside1      : JOINTPOS
+  ontop1       : JOINTPOS
+  outside2     : JOINTPOS
+  inside2      : JOINTPOS
+  ontop2       : JOINTPOS
+  outside3     : JOINTPOS
+  inside3      : JOINTPOS
+  ontop3       : JOINTPOS
+  outside4     : JOINTPOS
+  inside4      : JOINTPOS
+  ontop4       : JOINTPOS
+  outside5     : JOINTPOS
+  inside5      : JOINTPOS
+  ontop5       : JOINTPOS
+  outside6     : JOINTPOS
+  inside6      : JOINTPOS
+  ontop6       : JOINTPOS
+  outside7     : JOINTPOS
+  inside7      : JOINTPOS
+  ontop7       : JOINTPOS
+  outside8     : JOINTPOS
+  inside8      : JOINTPOS
+  ontop8       : JOINTPOS
+  outside9     : JOINTPOS
+  inside9      : JOINTPOS
+  ontop9       : JOINTPOS
+  number       : INTEGER
+  total        : INTEGER
+  box1         : INTEGER
+  box2         : INTEGER
+  box3         : INTEGER
+  box4         : INTEGER
+  box5         : INTEGER
+  box6         : INTEGER
+  box7         : INTEGER
+  box8         : INTEGER
+  box9         : INTEGER
+
+ROUTINE pickupa
+
+BEGIN
+  MOVE TO abovepta
+  $SPEED = 200
+  $MOTYPE = LINEAR
+  MOVE TO onpta
+  DOUT[3] = TRUE
+  DELAY 2000
+  MOVE TO abovepta
+  MOVE TO offrack
+  $SPEED = 750
+  $MOTYPE = JOINT
+
+END pickupa
+
+ROUTINE tie
+
+BEGIN
+  MOVE TO perch
+  DOUT[4] = TRUE
+  DOUT[5] = TRUE
+  DOUT[6] = TRUE
+  MOVE TO outside1
+  $MOTYPE = LINEAR
+  MOVE TO outside9
+  MOVE TO outside7
+  MOVE TO outside3
+  MOVE TO outside1
+  MOVE TO perch
+  ABORT
+
+END tie
+
+ROUTINE win159
+
+BEGIN
+  DOUT[6] = TRUE
+  MOVE TO outside1
+  $MOTYPE = LINEAR
+  MOVE TO outside9
+  MOVE TO perch
+  ABORT
+END win159
+
+ROUTINE win789
+
+BEGIN
+  DOUT[6] = TRUE
+  MOVE TO outside7
+  $MOTYPE = LINEAR
+  MOVE TO outside9
+  MOVE TO perch
+  ABORT
+END win789
+
+ROUTINE win369
+
+BEGIN
+  DOUT[6] = TRUE
+  MOVE TO outside3
+  $MOTYPE = LINEAR
+  MOVE TO outside9
+  MOVE TO perch
+  ABORT
+END win369
+
+ROUTINE win147
+
+BEGIN
+  DOUT[6] = TRUE
+  MOVE TO outside1
+  $MOTYPE = LINEAR
+  MOVE TO outside7
+  MOVE TO perch
+  ABORT
+END win147
+
+ROUTINE win123
+
+BEGIN
+  DOUT[6] = TRUE
+  MOVE TO outside1
+  $MOTYPE = LINEAR
+  MOVE TO outside3
+  MOVE TO perch
+  ABORT
+END win123
+
+ROUTINE win357
+
+BEGIN
+  DOUT[6] = TRUE
+  MOVE TO outside3
+  $MOTYPE = LINEAR
+  MOVE TO outside7
+  MOVE TO perch
+  ABORT
+END win357
+
+ROUTINE place1
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside1
+  $MOTYPE = LINEAR
+  $SPEED = 200
+  MOVE TO inside1
+  MOVE TO ontop1
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside1
+  MOVE TO outside1
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX1=1
+  MOVE TO perch
+
+END place1
+
+ROUTINE place2
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside2
+  $MOTYPE = LINEAR
+  $SPEED = 200
+  MOVE TO inside2
+  MOVE TO ontop2
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside2
+  MOVE TO outside2
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX2=1
+  MOVE TO perch
+
+END place2
+
+ROUTINE place3
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside3
+  $MOTYPE = LINEAR
+  $SPEED = 200
+  MOVE TO inside3
+  MOVE TO ontop3
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside3
+  MOVE TO outside3
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX3=1
+  MOVE TO perch
+
+END place3
+
+ROUTINE place4
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside4
+  $MOTYPE = LINEAR
+  $SPEED = 200
+  MOVE TO inside4
+  MOVE TO ontop4
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside4
+  MOVE TO outside4
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX4=1
+  MOVE TO perch
+
+END place4
+
+ROUTINE place5
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside5
+  $SPEED = 750
+  $MOTYPE = JOINT
+  MOVE TO inside5
+  MOVE TO ontop5
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside5
+  MOVE TO outside5
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX5=1
+  MOVE TO perch
+
+END place5
+
+ROUTINE place6
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside6
+  $SPEED = 750
+  $MOTYPE = JOINT
+  MOVE TO inside6
+  MOVE TO ontop6
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside6
+  MOVE TO outside6
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX6=1
+  MOVE TO perch
+
+END place6
+
+ROUTINE place7
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside7
+  $SPEED = 750
+  $MOTYPE = JOINT
+  MOVE TO inside7
+  MOVE TO ontop7
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside7
+  MOVE TO outside7
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX7=1
+  MOVE TO perch
+
+END place7
+
+ROUTINE place8
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside8
+  $SPEED = 750
+  $MOTYPE = JOINT
+  MOVE TO inside8
+  MOVE TO ontop8
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside8
+  MOVE TO outside8
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX8=1
+  MOVE TO perch
+
+END place8
+
+ROUTINE place9
+
+BEGIN
+
+  MOVE TO perch
+  MOVE TO outside9
+  $SPEED = 750
+  $MOTYPE = JOINT
+  MOVE TO inside9
+  MOVE TO ontop9
+  DOUT[3] = FALSE
+  DELAY 2300
+  MOVE TO inside9
+  MOVE TO outside9
+  $SPEED = 750
+  $MOTYPE = JOINT
+  BOX9=1
+  MOVE TO perch
+
+END place9
+
+ROUTINE dan
+
+BEGIN
+
+l1::
+
+  IF DIN[1] = TRUE THEN
+    IF box1 = 0 THEN
+      pickupa
+      place1
+      box1 =1
+      RETURN
+    ENDIF
+  ENDIF
+
+  IF DIN[2] = TRUE THEN
+    IF box2 = 0 THEN
+      pickupa
+      place2
+      box2 =1
+      RETURN
+    ENDIF
+  ENDIF
+
+  IF DIN[3] = TRUE THEN
+    IF box3 = 0 THEN
+      pickupa
+      place3
+      box3 =1
+      RETURN
+    ENDIF
+  ENDIF
+
+  IF DIN[4] = TRUE THEN
+    IF box4 = 0 THEN
+      pickupa
+      place4
+      box4 =1
+      RETURN
+    ENDIF
+
+    IF DIN[5] = TRUE THEN
+      IF box5 = 0 THEN
+        pickupa
+        place5
+        box5 =1
+        RETURN
+      ENDIF
+    ENDIF
+
+    IF DIN[6] = TRUE THEN
+      IF box6 = 0 THEN
+        pickupa
+        place6
+        box6 =1
+        RETURN
+      ENDIF
+    ENDIF
+
+    IF DIN[7] = TRUE THEN
+      IF box7 = 0 THEN
+        pickupa
+        place7
+        box7 =1
+        RETURN
+      ENDIF
+    ENDIF
+
+    IF DIN[8] = TRUE THEN
+      IF box8 = 0 THEN
+        pickupa
+        place8
+        box8 =1
+        RETURN
+      ENDIF
+    ENDIF
+
+    IF DIN[9] = TRUE THEN
+      IF box9 = 0 THEN
+        pickupa
+        place9
+        box9 =1
+        RETURN
+      ENDIF
+    ENDIF
+  ENDIF
+
+  GOTO l1
+
+END dan
+
+BEGIN
+  $SPEED = 750
+  DOUT[4] = FALSE
+  DOUT[5] = FALSE
+  DOUT[6] = FALSE
+  box1 =0
+  box2 =0
+  box3 =0
+  box4 =0
+  box5 =0
+  box6 =0
+  box7 =0
+  box8 =0
+  box9 =0
+
+  MOVE TO perch
+  pickupa
+  place1
+  dan
+  IF box9 = 0 THEN
+    pickupa
+    place9
+    dan
+    IF box5 = 1 THEN
+      IF box2 = 1 THEN
+        pickupa
+        place8
+        dan
+        IF box7 = 1 THEN
+          pickupa
+          place3
+          dan
+          IF box6 = 1 THEN
+            pickupa
+            place4
+            tie
+          ENDIF
+          pickupa
+          place6
+          win369
+        ENDIF
+        pickupa
+        place7
+        win789
+      ENDIF
+      IF box3 = 1 THEN
+        pickupa
+        place7
+        dan
+        IF box8 = 1 THEN
+          pickupa
+          place4
+          win147
+        ENDIF
+        pickupa
+        place8
+        win789
+      ENDIF
+      IF box6 = 1 THEN
+        pickupa
+        place4
+        dan
+        IF box7 = 1 THEN
+          pickupa
+          place3
+          dan
+          IF box2 = 1 THEN
+            pickupa
+            place8
+            tie
+          ENDIF
+          pickupa
+          place2
+          win123
+        ENDIF
+        pickupa
+        place7
+        win147
+      ENDIF
+      IF box4 = 1 THEN
+        pickupa
+        place6
+        dan
+        IF box3 = 1 THEN
+          pickupa
+          place7
+          dan
+          IF box8 = 1 THEN
+            pickupa
+            place2
+            tie
+          ENDIF
+          pickupa
+          place8
+          win789
+        ENDIF
+        pickupa
+        place3
+        win369
+      ENDIF
+      IF box7 = 1 THEN
+        pickupa
+        place3
+        dan
+        IF box6 = 1 THEN
+          pickupa
+          place2
+          win123
+        ENDIF
+        pickupa
+        place6
+        win369
+      ENDIF
+      pickupa
+      place2
+      dan
+      IF box3 = 1 THEN
+        pickupa
+        place7
+        dan
+        IF box4 = 1 THEN
+          pickupa
+          place6
+          tie
+        ENDIF
+        pickupa
+        place4
+        win147
+      ENDIF
+      pickupa
+      place3
+      win123
+    ENDIF
+    pickupa
+    place5
+    win159
+  ENDIF
+  pickupa
+  place3
+  dan
+  IF box2 = 1 THEN
+    pickupa
+    place7
+    dan
+    IF box5 = 1 THEN
+      pickupa
+      place4
+      win147
+    ENDIF
+    pickupa
+    place5
+    win357
+  ENDIF
+  pickupa
+  place2
+  win123
+  MOVE TO perch
+
+END tttsny
+
